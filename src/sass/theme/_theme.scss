@@ -687,3 +687,80 @@ header{
 		background-color: lighten($baseColor, 10%);
 	}
 }
+.form-header{
+	// background-color: lighten($tcolor, 70%);
+}
+.progress-indicator{
+	max-width: 350px;
+	position: relative;
+	margin: 0 auto;
+	.point{
+		width: 30px;
+		height: 30px;
+		position: relative;
+		background-color: lighten($tcolor, 60%);
+		border-radius: 50%;
+		margin: 0 auto;
+		&:after{
+			content: '';
+			width: 15px;
+			height: 15px;
+			background-color: $baseColor;
+			border-radius: 50%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: 25;
+			@include vendorPrefix(transform, translate(-50%, -50%));
+		}
+	}
+	.progress-bar{
+		position: absolute;
+		background-color: lighten($tcolor, 60%);
+		height: 20px;
+		width: 80%;
+		left: 37px;
+		top: 5px;
+		&:after{
+			position: absolute;
+			content: "";
+			width: 50%;
+			top: 50%;
+			background-color: $baseColor;
+			height: 5px;
+			z-index: 9;
+			@include vendorPrefix(transform, translateY(-50%));
+		}
+	}
+}
+.form-body{
+	background-color: lighten($tcolor, 75%);
+}
+
+.form-input{
+	position: relative;
+	&.required{
+		&:after{
+			position: absolute;
+			content: "*";
+			color: $red;
+			font-size: 14px;
+			right: -5px;
+			top: 50%;
+			@include vendorPrefix(transform, translateY(-50%));
+		}
+	}
+}
+
+.form-controls{
+	border: 1px solid lighten($baseColor, 30%);
+	width: 100%;
+	padding: 20px 15px;
+}
+
+textarea.form-controls{
+	min-height: 150px;
+}
+.require-info{
+	color: $baseColor;
+}
