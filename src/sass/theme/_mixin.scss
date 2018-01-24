@@ -1,0 +1,28 @@
+//custom mixins//
+@mixin vendorPrefix($property, $args) {
+    $prefixes: (webkit moz ms o);
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $args;
+    }
+    #{$property}: $args;
+}
+
+@mixin background-utility($size: cover, $repeat: no-repeat, $position: center center) {
+    background-size: $size;
+    background-repeat: $repeat;
+    background-position: $position;
+}
+
+@mixin transition($property: all, $value: 0.3s, $ease: cubic-bezier(0.19, 1, 0.22, 1)){
+	@include vendorPrefix(transition, $property $value $ease);
+}
+
+//multilevel text truncate
+@mixin mle($lineHeight: 1.2em, $lineCount: 1){
+    overflow: hidden;
+    position: relative;
+    line-height: $lineHeight;
+    max-height: $lineHeight * $lineCount; 
+    min-height: $lineHeight * $lineCount; 
+    text-overflow: ellipsis;
+  }
