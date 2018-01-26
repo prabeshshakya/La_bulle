@@ -102,7 +102,9 @@ header{
 		}
 	}
 }
+
 .la-form{
+	position: relative;
 	input[type="text"]{
 		border: 1px solid lighten($tcolor, 60%);
 		border-right: 0px;
@@ -110,6 +112,9 @@ header{
 		font-size: 14px;
 		&::placeholder{
 			color: lighten($tcolor, 20%);
+		}
+		&:focus{
+			outline: none;
 		}
 	}
 	.submit-btn{
@@ -122,6 +127,18 @@ header{
 		&:hover{
 			cursor:pointer;
 		}
+	}
+}
+.search-option{
+	.la-form{
+		input[type="text"]{
+			border-right: 1px solid lighten($tcolor, 60%);
+			border-left: 0px;
+		}
+	}
+	.submit-btn{
+		border-right: 0px;
+		border-left: 1px solid lighten($tcolor, 60%);
 	}
 }
 
@@ -763,4 +780,53 @@ textarea.form-controls{
 }
 .require-info{
 	color: $baseColor;
+}
+
+.suggestion{
+	&.active{
+		opacity: 1;
+		pointer-events: auto;
+	}
+	opacity: 0;
+	pointer-events: none;
+	@include transition();
+	z-index: 999;
+	a{
+		&:hover{
+			text-decoration: none;
+			.product-suggestion-list{
+				background-color: darken(white, 7%);
+			}
+		}
+		.product-suggestion-list{
+			@include transition();
+			border-bottom: 1px solid lighten($tcolor, 60%);
+			background-color: darken(white, 5%);
+			&:last-child{
+				border-bottom: 0px;
+			}
+		}
+		&:nth-child(even){
+			.product-suggestion-list{
+				background-color: white;
+			}
+		}
+
+	}
+	position: absolute;
+	width: 100%;
+	top: 100%;
+	border: 1px solid lighten($tcolor, 60%);
+	.ptitle{
+		color: $tcolor;
+	}
+	.suggest-image{
+		width: 50px;
+		height: 40px;
+		img{
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+	}
 }

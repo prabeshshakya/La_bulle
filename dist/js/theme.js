@@ -573,4 +573,12 @@ $(".menu-toggle").click(function(e){
 		e.preventDefault();
 		$(".cart-block").toggleClass("open");
 	});
+
+	//to activate search suggestion
+	$('.search-option input').on("focus", function(){
+		$(".suggestion").addClass("active");
+	});
+	$('.search-option input').on("focusout", function(){
+		$(".suggestion").removeClass("active");
+	});
 })();

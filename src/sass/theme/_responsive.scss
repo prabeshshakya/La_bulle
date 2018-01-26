@@ -6,6 +6,18 @@
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991px) { 
+    .search-option{
+        .la-form{
+            input[type="text"]{
+                border-left: 1px solid lighten($tcolor, 60%);
+                border-right: 0px;
+            }
+        }
+        .submit-btn{
+            border-left: 0px;
+            border-right: 1px solid lighten($tcolor, 60%);
+        }
+    }
     header{
         height: 70px;
         .sp-logo{
